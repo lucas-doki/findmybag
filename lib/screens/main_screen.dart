@@ -5,8 +5,6 @@ import 'package:findmybag/screens/map_screen.dart';
 import 'package:findmybag/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'home_screen.dart';
-
 class MainScreen extends StatefulWidget {
   static const id = 'main_screen.dart';
   const MainScreen({super.key});
@@ -17,7 +15,6 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   List screens = [
-    HomeScreen(),
     MapScreen(),
     ChatBotScreen(),
     ProfileScreen(),
