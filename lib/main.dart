@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         MapScreen.id: (context) => const MapScreen(),
         ProfileScreen.id: (context) => const ProfileScreen(),
         HomeScreen.id: (context) => const HomeScreen(),
-        ChatBotScreen.id: (context) => const ChatBotScreen(),
+        ChatBotScreen.id: (context) => ChatBotScreen(),
       },
     );
   }
