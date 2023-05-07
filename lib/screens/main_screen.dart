@@ -40,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: Colors.white,
         onTap: onTap,
         currentIndex: currentIndex,
-        selectedItemColor: Colors.black54,
+        selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey.withOpacity(0.5),
         showUnselectedLabels: false,
         showSelectedLabels: false,
