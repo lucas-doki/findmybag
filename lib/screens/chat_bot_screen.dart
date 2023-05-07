@@ -11,12 +11,12 @@ class ChatBotScreen extends StatelessWidget {
   List<Message> messages = [
     Message('Yah ', false),
     Message('Yah ', false),
+    Message('Yah ', true),
     Message('Yah ', false),
     Message('Yah ', false),
+    Message('Yah ', true),
     Message('Yah ', false),
-    Message('Yah ', false),
-    Message('Yah ', false),
-    Message('Yah ', false)
+    Message('Yah ', true)
   ].reversed.toList();
 
   @override
@@ -40,6 +40,7 @@ class ChatBotScreen extends StatelessWidget {
                       ? Alignment.centerRight
                       : Alignment.centerLeft,
                   child: Card(
+                    color: message.isSentByMe ? Colors.blue : Colors.white,
                     elevation: 8,
                     child: Padding(
                       padding: EdgeInsets.all(12),
