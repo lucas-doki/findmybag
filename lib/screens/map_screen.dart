@@ -1,23 +1,30 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../widgets/app_text.dart';
 
-class MapScreen extends StatelessWidget {
+class MapScreen extends StatefulWidget {
   static const id = 'map_screen.dart';
   const MapScreen({super.key});
 
   @override
+  State<MapScreen> createState() => _MapScreenState();
+}
+
+class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
+  @override
   Widget build(BuildContext context) {
+    TabController _tabController = TabController(length: 3, vsync: this);
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 500,
+            height: 400,
             width: double.maxFinite,
             margin: const EdgeInsets.only(top: 60, right: 20, left: 20),
             child: FlutterMap(
@@ -35,17 +42,128 @@ class MapScreen extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           Container(
-            margin: EdgeInsets.only(left: 20),
-            child: Column(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: TabBar(
+                labelPadding: EdgeInsets.only(right: 20, left: 20),
+                controller: _tabController,
+                labelColor: Colors.blue,
+                unselectedLabelColor: Colors.grey,
+                isScrollable: true,
+                indicatorSize: TabBarIndicatorSize.label,
+                tabs: [
+                  Tab(
+                    text: 'Mala',
+                  ),
+                  Tab(
+                    text: 'Bagagem',
+                  ),
+                  Tab(
+                    text: 'aaa',
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            height: 200,
+            width: double.maxFinite,
+            child: TabBarView(
+              controller: _tabController,
               children: [
-                AppText(text: 'Mala'),
-                SizedBox(height: 10),
-                AppText(text: 'Mala'),
-                SizedBox(height: 10),
-                AppText(text: 'Mala'),
-                SizedBox(height: 10),
-                AppText(text: 'Mala'),
-                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, top: 20),
+                  child: Container(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 80,
+                          height: 80,
+                          color: Colors.blue,
+                        ),
+                        SizedBox(width: 5),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AppText(
+                              text: 'Teste',
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            AppText(
+                              text: '123',
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, top: 20),
+                  child: Container(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 80,
+                          height: 80,
+                          color: Colors.blue,
+                        ),
+                        SizedBox(width: 5),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AppText(
+                              text: 'Bagagem',
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            AppText(
+                              text: '123',
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, top: 20),
+                  child: Container(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 80,
+                          height: 80,
+                          color: Colors.blue,
+                        ),
+                        SizedBox(width: 5),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AppText(
+                              text: 'aaa',
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            AppText(
+                              text: '123',
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
