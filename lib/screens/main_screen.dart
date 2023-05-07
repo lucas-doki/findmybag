@@ -43,8 +43,6 @@ class _MainScreenState extends State<MainScreen> {
         showSelectedLabels: false,
         elevation: 0,
         items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.map_rounded), label: 'Map'),
           BottomNavigationBarItem(
               icon: Icon(Icons.message_outlined), label: 'Chat Bot'),

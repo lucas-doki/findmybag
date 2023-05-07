@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
 
-import 'package:findmybag/widgets/message_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 
@@ -58,10 +57,26 @@ class ChatBotScreen extends StatelessWidget {
                 contentPadding: EdgeInsets.all(12),
                 hintText: 'Type your message here ',
               ),
+              onSubmitted: _handleSubmission,
             ),
           ),
         ],
       ),
     );
   }
+}
+
+class Message {
+  final String text;
+  final bool isSentByMe;
+
+  Message(this.text, this.isSentByMe);
+}
+
+void _handleSubmission(text) {
+  // final message = Message(
+  //   text: text,
+  //   isSentByMe: true,
+  // );
+  // setState(() => messages.add(message));
 }
